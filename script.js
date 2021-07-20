@@ -10,6 +10,7 @@ const updateClock = () => {
   digitalElement.innerHTML = time;
 
   updateSecond(now);
+  updateMinute(now);
 }
 
 const fixZero = (time) => {
@@ -20,6 +21,12 @@ const updateSecond = (time) => {
   let secDeg = ((360 / 60) * time.getSeconds()) - 90;
   
   secondElement.style.transform = `rotate(${secDeg}deg)`;
+}
+
+const updateMinute = (time) => {
+  let minDeg = ((360 / 60) * time.getMinutes()) - 90;
+  
+  minuteElement.style.transform = `rotate(${minDeg}deg)`;
 }
 
 setInterval(updateClock, 1000);
